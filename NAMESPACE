@@ -1,0 +1,10 @@
+#exportPattern("^[[:alpha:]]+")
+import("lattice")
+
+export("pdclust")
+export("symmetric.alpha.divergence")
+export("pdc.dist")
+export("entropy.heuristic")
+export("codebook")
+export("plot.pdclust")
+export("print.pdclust")
