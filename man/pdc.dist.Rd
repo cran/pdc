@@ -8,7 +8,7 @@ Permutation Distribution Clustering Distance Matrix
 This function computes and returns the distance matrix computed by the divergence between permutation distributions of time series.
 }
 \usage{
-pdc.dist(X, m = NULL, divergence = symmetric.alpha.divergence)
+pdc.dist(X, m = NULL, t = NULL, divergence = symmetric.alpha.divergence)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -18,9 +18,10 @@ A matrix representing a set of time series. Columns are time series and rows rep
 }
   \item{m}{
 Embedding dimension for calculating the permutation distributions. 
-Reasonable values range somewhere between 2 and 10. If no embedding dimension is chosen, the MinE heuristic is used to determine the embedding dimension automatically.
+Reasonable values range usually somewhere between 2 and 10. If no embedding dimension is chosen, the MinE heuristic is used to determine the embedding dimension automatically.
 
 }
+\item{t}{Time-delay of the embedding}
   \item{divergence}{
 Divergence measure between discrete distributions. Default is the symmetric alpha divergence.
 

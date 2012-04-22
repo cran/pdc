@@ -1,20 +1,29 @@
 entropy.heuristic <-
-function(X, m.min=3, m.max=8)
+function(X, m.min=3, m.max=7, t.min=1, t.max=1)
 {
 	X <- as.matrix(X)
 	
 
-	ent <- rep(0, m.max-m.min+1)
-	for (i in m.min:m.max){
-		#ent[i-m.min+1] <- mean(sapply(FUN=codebook.entropy, datalist,m=i))
-		ent[i-m.min+1] <- mean(apply(FUN=codebook.entropy, MARGIN=2, X, m=i))
-	}
-	best <- which.min(ent);
+	ent <- matrix(rep(0, (m.max-m.min+1)*(t.max-t.min+1)*3 ),ncol=3 )
+	k<-1
+	for (j in t.min:t.max)
+	 for (i in m.min:m.max)
+	 {
+	 	ent[k,1] <- j
+	 	ent[k,2] <- i
+		ent[k,3] <- mean(apply(FUN=codebook.entropy, MARGIN=2, X, m=i,t=j))
+		k <- k+1
+	 }
+	best <- which.min(ent[,3]);
 	
 	result <- list()
 	result$entropy.values <- ent
-	result$m <- best+m.min-1
-	result$entropy.ms <- m.min:m.max
+	result$m <- ent[best,2]
+	result$t <- ent[best,1]
+	result$m.range <- m.min:m.max
+	result$t.range <- t.min:t.max
+	
+	class(result) <- "mine"
 	
 	return (result);
 }

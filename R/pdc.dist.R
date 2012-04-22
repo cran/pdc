@@ -1,5 +1,5 @@
 pdc.dist <-
-function(X, m=NULL, divergence=symmetric.alpha.divergence)
+function(X, m=NULL, t=NULL, divergence=symmetric.alpha.divergence)
 {
 	if (is.null(m)) {
 		m <- entropy.heuristic(X)$m;

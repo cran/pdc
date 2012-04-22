@@ -1,5 +1,7 @@
 \name{entropy.heuristic}
 \alias{entropy.heuristic}
+\alias{plot.mine}
+\alias{print.mine}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 Minimum Entropy Heuristic (MinE)
@@ -13,20 +15,30 @@ Heuristic (MinE) automatically chooses an embedding dimension with an optimal
 representational entropy as proxy for representational power.
 }
 \usage{
-entropy.heuristic(X, m.min=3, m.max=8)
+entropy.heuristic(X, m.min=3, m.max=7, t.min = 1, t.max = 1)
 }
 %- maybe also 'usage' for other objects documented here.
+
 \arguments{
   \item{X}{
 A matrix representing a set of time series. Columns are time series and rows represent time points.
 }
  \item{m.min}{Minimum embedding dimension}
 \item{m.max}{Maximum embedding dimension}
+\item{t.min}{Minimum time-delay}
+\item{t.max}{Maximum time-delay}
 
 }
 \details{
 For a range of embedding dimensions, the average entropy of the dataset is calculated. The embedding dimension with
-the lowest entropy is chosen.  
+the lowest entropy is chosen.  \code{print} and \code{plot} is available for result objects.
+
+The plot of a heuristic object shows the entropy values depending on a range
+of embedding dimensions and time-delays. If only embedding dimension or only
+time-delay is varied, a line plot is show to indicate the parameter yielding
+minimum entropy. Otherwise, an image plot is shown that indicates minimum
+entropy depending on both parameters.
+
 }
 \value{
 A list is returned with the following elements:
@@ -56,13 +68,8 @@ Andreas M. Brandmaier
 # and display a plot showing the average permutation entropy
 # depending on varying choices of the embedding size
 
-heur <-  entropy.heuristic( sin(1:100)+rnorm(100,0,1) )
-pch <- rep(22, length(heur$entropy.ms))
-pch[ which(heur$entropy.ms==heur$m)] <- 15
-plot(heur$entropy.ms, heur$entropy.values, type="b", pch=pch,
-	xlab="embedding dimension", ylab="entropy")
-abline(v = heur$m, lty=3)
-
+heuristic <-  entropy.heuristic( sin(1:100)+rnorm(100,0,1) )
+plot(heuristic)
 
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

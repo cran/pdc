@@ -1,8 +1,8 @@
 codebook.entropy <-
-function(data, m)
+function(data, m, t)
 {
 
-	ent <- entropy(codebook(data,m))
+	ent <- entropy(codebook(data,m, t))
 	
 	return( ent);
 }

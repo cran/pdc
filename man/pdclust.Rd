@@ -10,8 +10,9 @@ Permutation Distribution Clustering
 Hierarchical cluster analysis for time series. Similarity of time series is based on the similarity of their permutation distributions. 
 }
 \usage{
-pdclust(X, m=NULL, divergence=symmetric.alpha.divergence, 
-	clustering.method="complete")
+pdclust(X, m = NULL, t = NULL, divergence =
+                 symmetric.alpha.divergence, clustering.method =
+                 "complete")
 
 %Plotting function for class 'pdclust'
 
@@ -25,9 +26,8 @@ pdclust(X, m=NULL, divergence=symmetric.alpha.divergence,
 A matrix representing a set of time series. Columns are time series and rows represent time points.
 }
   \item{m}{
-Embedding dimension for calculating the permutation distributions. Reasonable values range somewhere between 2 and 10. If no embedding dimension is chosen, the MinE heuristic is used to determine the embedding dimension automatically.
-
-}
+Embedding dimension for calculating the permutation distributions. Reasonable values range somewhere between 2 and 10. If no embedding dimension is chosen, the MinE heuristic is used to determine the embedding dimension automatically.}
+  \item{t}{Time-delay of the embedding.}
   \item{divergence}{
 Divergence measure between discrete distributions. Default is the symmetric alpha divergence.
 }

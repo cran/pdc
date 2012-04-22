@@ -1,30 +1,42 @@
 codebook <-
-function(x,m=3)
+function(x,m=3,t=1)
 {
-	#cb <- rep(-1,length(v)-m+1)
-	distribution <- rep(0, factorial(m))
-	for(i in 1:(length(x)-m+1))
+
+	if (t*(m-1) >= length(x)) {
+		return(NA);
+	}
+
+	# generic codeword function
+	codeword.func <- codeword;
+	# specialied codeword functions (for speed up)
+	if (m==2) {
+		codeword.func <- codeword2;
+	} else if (m==3) {
+		codeword.func <- codeword3;
+	} else if (m==4) {
+		codeword.func <- codeword4;
+	} else if (m==5) {
+		codeword.func <- codeword5;
+	} else if (m==6) {
+		codeword.func <- codeword6;
+	} else if (m==7) {
+		codeword.func <- codeword7;
+	}
+	#codeword.func <- codeword;
+
+	distribution <- rep.int(0, factorial(m))
+	to <- (length(x)-t*(m-1))
+	for(i in 1:to)
 	{
-		#cat(i)
-		result <- sort(x[i:(i+m-1)],index.return=T)
-		permutation <- result$ix-1
-		sorteddata <- result$x
-		sortedlist <- (1:m)-1
-		#cat(perm,"\n")
+
+		data <- x[seq.int(i,i+t*(m-1),t)]
 		
-		number <- 1
-		for (j in 0:(m-1))
-		{
-			#cat("SL",sortedlist,"\n",sorteddata,"\nperm",permutation,"\n")
-			idx <- which(sortedlist==permutation[j+1])[1]
-			sortedlist <- sortedlist[-idx]
-			number <- number + factorial(m-j-1)*(idx-1)
-			
-		#	cat("IDX",idx,"\n\n")
-			
-		}	
-		#cat(number,"\n");
-		#cb[i] <- number
+		# skip data containing NA
+		if	(any(is.na(data))) { next; }
+		
+		# calculate permutation index
+		number <- codeword.func(data, m);
+				
 		distribution[number] <- distribution[number] + 1
 	}
 	
