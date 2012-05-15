@@ -8,7 +8,7 @@ Codebook
 A codebook contains the permutation distribution of a time series.
 }
 \usage{
-codebook(x, m = 3, t = 1)
+codebook(x, m = 3, t = 1, use.fast=T)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -19,6 +19,8 @@ codebook(x, m = 3, t = 1)
 The embedding dimension.
 }
 \item{t}{Time-delay of the embedding.}
+
+\item{use.fast}{Use a fast C-implementation if possible.}
 }
 \details{
 The length of a codebook is the factorial of the embedding dimension. The elements of the

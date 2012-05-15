@@ -11,3 +11,5 @@ export("print.pdclust")
 export("plot.mine")
 export("print.mine")
 export("loo1nn")
+
+useDynLib(pdc)

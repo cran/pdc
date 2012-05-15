@@ -2,7 +2,11 @@ entropy.heuristic <-
 function(X, m.min=3, m.max=7, t.min=1, t.max=1)
 {
 	X <- as.matrix(X)
-	
+
+	if (m.max>7) {
+	 # issue a message
+	 message(paste("No fast implementation for embedding sizes larger than 7 is available. Calculation might be slow!"));	
+	}
 
 	ent <- matrix(rep(0, (m.max-m.min+1)*(t.max-t.min+1)*3 ),ncol=3 )
 	k<-1

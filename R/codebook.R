@@ -1,28 +1,37 @@
 codebook <-
-function(x,m=3,t=1)
+function(x,m=3,t=1, use.fast=T)
 {
+	if (class(x) != "numeric") {
+		stop("X must be of class numeric!")
+	}
 
 	if (t*(m-1) >= length(x)) {
 		return(NA);
 	}
+	
+	# branch to fast C implementation, if possible
+	
+ 	 if (use.fast) {
+	  if (m==2) {
+		distribution <- ( .Call("fast_codebook2",x,t) )	 	
+	  } else if (m==3) {
+		distribution <-( .Call("fast_codebook3",x,t) )
+	  } else if (m==4) {
+	 	distribution <-( .Call("fast_codebook4", x,t))
+	  } else if (m==5) {
+	 	distribution <-( .Call("fast_codebook5", x,t))
+	  } else if (m==6) {
+	 	distribution <-( .Call("fast_codebook6", x,t))
+	  } else if (m==7) {
+	 	distribution <- ( .Call("fast_codebook7", x,t))
+	  }
+	 } 
+
+	if (!use.fast | m>7) {
+	 
 
 	# generic codeword function
 	codeword.func <- codeword;
-	# specialied codeword functions (for speed up)
-	if (m==2) {
-		codeword.func <- codeword2;
-	} else if (m==3) {
-		codeword.func <- codeword3;
-	} else if (m==4) {
-		codeword.func <- codeword4;
-	} else if (m==5) {
-		codeword.func <- codeword5;
-	} else if (m==6) {
-		codeword.func <- codeword6;
-	} else if (m==7) {
-		codeword.func <- codeword7;
-	}
-	#codeword.func <- codeword;
 
 	distribution <- rep.int(0, factorial(m))
 	to <- (length(x)-t*(m-1))
@@ -38,6 +47,8 @@ function(x,m=3,t=1)
 		number <- codeword.func(data, m);
 				
 		distribution[number] <- distribution[number] + 1
+	}
+	
 	}
 	
 	return(distribution/sum(distribution))

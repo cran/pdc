@@ -1,3 +1,7 @@
+V0.3;	15.05.2012
+- drastic speed-up with fast C-implementation of codebook()
+- added support for multi-channel time-series
+
 V0.2; 	19.04.2012
 - implemented time-delayed embedding
 - drastic speed-up of codeword()-function

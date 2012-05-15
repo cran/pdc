@@ -1,4 +1,4 @@
-plot.mine <- function(x, normalize=F,type="image",...) {
+plot.mine <- function(x, normalize=F,type="image", mark.optimum=T, ...) {
 
 x.data <- x$t.range
 y.data <- x$m.range
@@ -18,10 +18,16 @@ if ((length(x.data) == 1) | (length(y.data) == 1)) {
  }
 	
  pch <- rep(22, length(rng))
- pch[ which(rng==r)] <- 15
+ 
+ if (mark.optimum) {
+  pch[ which(rng==r)] <- 15
+ } 
+
  plot(x$entropy.values[,idx], x$entropy.values[,3], type="b", pch=pch,
  	xlab=xlabel, ylab="entropy")
+ if (mark.optimum) {
  	abline(v = r, lty=3)
+ }
 	
 	
 } else {
@@ -39,7 +45,11 @@ if ((length(x.data) == 1) | (length(y.data) == 1)) {
  } else if (type=="image") {
 	image(x.data,y.data,z, xlab="time delay",ylab="embedding dimension",main="Entropy Heuristic")
  }
- points( x$t, x$m, pch=4, cex=3)
+	
+ if (mark.optimum) {
+ 	points( x$t, x$m, pch=4, cex=3)
+ }
+
 }
 
 }
