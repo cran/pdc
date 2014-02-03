@@ -1,8 +1,10 @@
 #exportPattern("^[[:alpha:]]+")
-import("lattice")
+#import("lattice")
 
 export("pdclust")
 export("symmetric.alpha.divergence")
+export("hellinger.distance")
+export("squared.hellinger.distance")
 export("pdc.dist")
 export("entropy.heuristic")
 export("codebook")
@@ -11,5 +13,8 @@ export("print.pdclust")
 export("plot.mine")
 export("print.mine")
 export("loo1nn")
+
+export("trace.image")
+export("convert.image")
 
 useDynLib(pdc)

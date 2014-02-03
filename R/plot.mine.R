@@ -24,7 +24,7 @@ if ((length(x.data) == 1) | (length(y.data) == 1)) {
  } 
 
  plot(x$entropy.values[,idx], x$entropy.values[,3], type="b", pch=pch,
- 	xlab=xlabel, ylab="entropy")
+ 	xlab=xlabel, ylab="entropy",...)
  if (mark.optimum) {
  	abline(v = r, lty=3)
  }
@@ -41,9 +41,9 @@ if ((length(x.data) == 1) | (length(y.data) == 1)) {
 #	 image(z, xlab="time delay",ylab="embedding dimension",main="Entropy Heuristic")
 # } else 
  if (type=="contour") {
-	contour(x.data,y.data,z)
+	contour(x.data,y.data,z, ...)
  } else if (type=="image") {
-	image(x.data,y.data,z, xlab="time delay",ylab="embedding dimension",main="Entropy Heuristic")
+	image(x.data,y.data,z, xlab="time delay",ylab="embedding dimension",main="Entropy Heuristic" , ...)
  }
 	
  if (mark.optimum) {

@@ -1,5 +1,5 @@
 codebook <-
-function(x,m=3,t=1, use.fast=T)
+function(x,m=3,t=1, use.fast=T, normalized=T)
 {
 	if (class(x) != "numeric") {
 		stop("X must be of class numeric!")
@@ -51,6 +51,9 @@ function(x,m=3,t=1, use.fast=T)
 	
 	}
 	
-	return(distribution/sum(distribution))
-	
+	if (normalized) {	
+		return(distribution/sum(distribution))
+	} else {
+		return(distribution)
+	}
 }

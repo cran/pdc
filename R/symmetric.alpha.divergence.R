@@ -1,6 +1,6 @@
 symmetric.alpha.divergence <-
-function(dist1, dist2)
+function(x, y)
 {
-	return ( 4*(1-sum(sqrt(dist1*dist2)) ))
+	return ( 4*(1-sum(sqrt(x*y)) ))
 	
 }

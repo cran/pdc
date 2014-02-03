@@ -25,6 +25,7 @@ clustering of a set of time series based on differences in their permutation dis
 Other clustering or dimensionality-reduction methods can easily be employed by 
 directly accessing the distance matrix based on the permutation distribution via \code{\link{pdc.dist}}.
 A heuristic for choosing the embedding dimension is provided via \code{\link{entropy.heuristic}}.
+For clustering shapes, shape signatures can be traced from images with \code{\link{trace.image}}. Example data sets for shape clustering are \code{\link{star.shapes}} and \code{\link{complex.shapes}}.
 }
 \author{
 Andreas M. Brandmaier <brandmaier@mpib-berlin.mpg.de>

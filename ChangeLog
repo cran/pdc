@@ -1,3 +1,9 @@
+V0.4;   04.02.2014
+- added hellinger distance, squared hellinger distance, and symmetric alpha divergence
+- added shape signature tracer
+- added example datasets for shape signatures: complex.shapes and star.shapes
+- moved dependence of package lattice to suggestions
+
 V0.3;	15.05.2012
 - drastic speed-up with fast C-implementation of codebook()
 - added support for multi-channel time-series

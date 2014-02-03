@@ -35,6 +35,7 @@ function(X, m=NULL, t=NULL, divergence=symmetric.alpha.divergence, clustering.me
 	# add meta info
 	hcl$divergence <- divergence
 	hcl$m <- m
+	hcl$t <- t
 	hcl$user.specified.m <- user.m
 	hcl$user.specified.t <- user.t
 	hcl$N <- length(hcl$order)
