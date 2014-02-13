@@ -1,3 +1,11 @@
+V0.5;	13.02.2014
+- added mds.plot() for multidimensional scaling including convex hulls of
+	clusters
+- added string representation of pdclust dendrogram using str()
+- print() shows time-delay
+- added capability to plot p values for hypothesis tests on branch splits
+- added compatibility of loo1nn() with dissimilarity matrices
+
 V0.4;   04.02.2014
 - added hellinger distance, squared hellinger distance, and symmetric alpha divergence
 - added shape signature tracer

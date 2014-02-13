@@ -1,4 +1,4 @@
-plot.mine <- function(x, normalize=F,type="image", mark.optimum=T, ...) {
+plot.mine <- function(x, normalize=F,type="image", mark.optimum=T, scale=F, col=heat.colors(12),...) {
 
 x.data <- x$t.range
 y.data <- x$m.range
@@ -43,8 +43,14 @@ if ((length(x.data) == 1) | (length(y.data) == 1)) {
  if (type=="contour") {
 	contour(x.data,y.data,z, ...)
  } else if (type=="image") {
-	image(x.data,y.data,z, xlab="time delay",ylab="embedding dimension",main="Entropy Heuristic" , ...)
+	image(x.data,y.data,z, xlab="time delay",ylab="embedding dimension",main="Entropy Heuristic" , col=col, ...)
  }
+ 
+ 
+ # add image scale
+#	if (scale) {
+		
+	#}
 	
  if (mark.optimum) {
  	points( x$t, x$m, pch=4, cex=3)

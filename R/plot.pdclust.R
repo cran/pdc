@@ -1,10 +1,14 @@
 plot.pdclust <-
-function(x,labels=NULL,type="rectangle",cols="black", timeseries.as.labels = T, ...)
+function(x,labels=NULL,type="rectangle",cols="black", timeseries.as.labels = T, p.values=F, ...)
 {
 	# create labels if none are given
 	#if (is.null(labels)) {
 #		labels <- paste("",1:length(X),sep="");
 #	}
+
+	if (!is.null(labels)) {
+		timeseries.as.labels=F
+	}
 	
 	# create color vector for plotting ts
 	if (length(cols) == 1) {
@@ -16,6 +20,10 @@ function(x,labels=NULL,type="rectangle",cols="black", timeseries.as.labels = T, 
 	{
 		class(x) <- "hclust"
 		plot(x, main="Permutation Distribution Clustering",labels, ...);
+		
+		if (p.values) {
+			plot.add.pvalues(x)
+		}
 	} else {
 		
 		X <- x$data

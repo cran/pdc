@@ -2,6 +2,7 @@
 \alias{pdclust}
 \alias{plot.pdclust}
 \alias{print.pdclust}
+\alias{str.pdclust}
 
 \title{
 Permutation Distribution Clustering
@@ -17,9 +18,14 @@ pdclust(X, m = NULL, t = NULL, divergence =
 %Plotting function for class 'pdclust'
 
 \method{plot}{pdclust}(x, labels=NULL, type="rectangle", cols="black",
-	timeseries.as.labels = T, \dots)
+	timeseries.as.labels = T, p.values=F, \dots)
+
+
+% String representation for 'pdclust'
+\method{str}{pdclust}(object, \dots)
 
 }
+
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{X}{
@@ -48,8 +54,14 @@ One of c("triangle","rectangle") to choose the dendrogram style.
 \item{cols}{Specify line color either as string or as vector of strings}
 \item{timeseries.as.labels}{ If \code{FALSE}, a vertical dendrogram is plotted using hclust. If
 \code{TRUE}, a horizontal dendrogram is plotted with time series plots as labels.}
+\item{p.values}{Annotation of the cluster hierarchy with p values}
 \item{\dots}{Further graphical arguments.}
+
+For string representation:
+
+\item{object}{A \code{pdclust} object}
 }
+
 \details{
 The function \code{pdclust} is the central function for clustering time-series in the package \code{pdc}.
 It allows clustering of univariate and multivariate time-series. 
@@ -63,7 +75,7 @@ dimenions representing (1) time, (2) entities, and (3) variables/channels.
 
 \value{
 Calls to \code{pdclust} return a \code{pdclust} object. There are
-\code{\link{print}} and \code{\link{plot}} methods for \code{pdclust} objects.
+\code{\link{print}}, \code{\link{str}} and \code{\link{plot}} methods for \code{pdclust} objects.
 }
 \references{
 Brandmaier, A. M. \emph{Permutation Distribution Clustering and Structural Equation Model Trees}. Dissertation. Saarland University. Saarbruecken. 2012.

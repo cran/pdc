@@ -42,6 +42,7 @@ function(X, m=NULL, t=NULL, divergence=symmetric.alpha.divergence, clustering.me
 	hcl$data <- X
 	hcl$D <- D
 	hcl$multichannel <- length(dim(X))==3
+	hcl$labels <- colnames(X)
 	
 	# wrap hclust result
 	class(hcl) <- "pdclust"
