@@ -2,7 +2,10 @@
 \alias{hellinger.distance}
 \alias{squared.hellinger.distance}
 \alias{symmetric.alpha.divergence}
-%- Also NEED an '\alias' for EACH other topic documented here.
+\alias{hellingerDistance}
+\alias{squaredHellingerDistance}
+\alias{symmetricAlphaDivergence}
+
 \title{
 Codebook Dissimliarities
 }
@@ -10,9 +13,9 @@ Codebook Dissimliarities
 Functions to calculate distances/dissimilarities between codebooks.
 }
 \usage{
-hellinger.distance(x,y)
-squared.hellinger.distance(x,y)
-symmetric.alpha.divergence(x,y)
+hellingerDistance(x,y)
+squaredHellingerDistance(x,y)
+symmetricAlphaDivergence(x,y)
 }
 \arguments{
   \item{x}{
@@ -39,7 +42,7 @@ Andreas M. Brandmaier
 
 x <- codebook(c(sin(1:100)),m=3)
 y <- codebook(c(sin(1:100*0.1)),m=3)
-hellinger.distance(x,y)
+hellingerDistance(x,y)
 
 }
 

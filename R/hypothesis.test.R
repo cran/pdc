@@ -1,4 +1,3 @@
-require("TeachingDemos")
 
 test.clusters<-function(x, ids.cluster1, ids.cluster2)    
 {

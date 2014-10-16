@@ -1,7 +1,8 @@
-\name{trace.image}
+\name{traceImage}
+\alias{traceImage}
 \alias{trace.image}
+\alias{convertImage}
 \alias{convert.image}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 Shape Tracing of an Image
 }
@@ -9,9 +10,9 @@ Shape Tracing of an Image
 Trace the shape of an image to create a shape signature
 }
 \usage{
-trace.image(img, resolution)
+traceImage(img, resolution)
 
-convert.image(imgrgb, threshold = 0.5)
+convertImage(imgrgb, threshold = 0.5)
 }
 \arguments{
   \item{img}{
@@ -39,12 +40,8 @@ In order to create signatures for RGB images, convert the image with \code{conve
 Exemplary datasets containing shape signatures for shape clustering are provided in this package as \code{\link{star.shapes}} and \code{\link{complex.shapes}}.
 }
 \value{
-%\item{cb}{vector of relative frequencies}
 Returns a list containing \code{angle}s and corresponding \code{distance}s from center.
 }
-%\references{
-%% ~put references to the literature/web site here ~
-%}
 \author{
 Andreas M. Brandmaier
 }
@@ -57,7 +54,7 @@ img <- matrix(0, nrow=20,ncol=20)
 img[5:15,5:15] <- 1
 
 # create shape signature
-signature <- trace.image(img)
+signature <- traceImage(img)
 
 # plot both original image and shape signature
 par(mfrow=c(1,3))
@@ -66,6 +63,8 @@ image(img)
 plot(signature$angle, signature$distance,type="l",xlab="angle",ylab="distance")
 
 # reconstruct radial plot
+\donttest{ 
 require("plotrix")
-radial.plot(trace.image(img,resolution=500)$distance,start=0,rp.type="r",radial.lim=c(0,10))
+radial.plot(traceImage(img,resolution=500)$distance,start=0,rp.type="r",radial.lim=c(0,10))
+}
 }

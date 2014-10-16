@@ -1,4 +1,12 @@
+
+
 convert.matrix.multichannel <-
+function(X, m, t) {
+	warning("Calls to convert.matrix.multichannel(...) is deprecated!")
+	return(convertMatrixMultichannel(X, m, t));
+}
+
+convertMatrixMultichannel <-
 function(X, m, t) {
 result <- array(0, dim=c( dim(X)[2]*dim(X)[3] , factorial(m)))
 

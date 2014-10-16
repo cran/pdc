@@ -1,4 +1,4 @@
-plot.mine <- function(x, normalize=F,type="image", mark.optimum=T, scale=F, col=heat.colors(12),...) {
+plot.mine <- function(x, normalize=FALSE,type="image", mark.optimum=TRUE, col=heat.colors(12), ...) {
 
 x.data <- x$t.range
 y.data <- x$m.range
@@ -28,6 +28,7 @@ if ((length(x.data) == 1) | (length(y.data) == 1)) {
  if (mark.optimum) {
  	abline(v = r, lty=3)
  }
+
 	
 	
 } else {
@@ -42,7 +43,8 @@ if ((length(x.data) == 1) | (length(y.data) == 1)) {
 # } else 
  if (type=="contour") {
 	contour(x.data,y.data,z, ...)
- } else if (type=="image") {
+ #} else if (type=="image") {
+  } else {
 	image(x.data,y.data,z, xlab="time delay",ylab="embedding dimension",main="Entropy Heuristic" , col=col, ...)
  }
  
@@ -57,5 +59,7 @@ if ((length(x.data) == 1) | (length(y.data) == 1)) {
  }
 
 }
+
+invisible()
 
 }

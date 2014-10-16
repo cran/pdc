@@ -29,7 +29,8 @@ function(x,labels=NULL,type="rectangle",cols="black", timeseries.as.labels = T, 
 		X <- x$data
 
 			# -- or horizontal plot --
-		 par(fig=c(0,0.3,0,1),mar=c(0,0,0,0),new=F)
+		oldpar <- par(fig=c(0,0.3,0,1),mar=c(0,0,0,0),new=F)
+		on.exit(par(oldpar))
 		class(x) <- "hclust"
 		plot(as.dendrogram(x), 
 		horiz = TRUE, leaflab="none", frame.plot=FALSE,
@@ -60,6 +61,54 @@ function(x,labels=NULL,type="rectangle",cols="black", timeseries.as.labels = T, 
 	}
 	
 			
-
+	invisible()
 	
+}
+
+sw<-function(pic)
+{
+	temp <- (pic[,,1]+pic[,,2]+pic[,,3])/3
+	pic[,,1] <- temp
+	pic[,,2] <- temp
+	pic[,,3] <- temp
+	return(pic)
+}
+
+
+rasterPlot <- function(cl, raw, monochrome=FALSE, ...)
+{
+  dev.new(width=1.5, height=7)
+	
+  x <- cl
+  X <- cl$data
+  type <- "rectangle"
+        par(fig = c(0, 0.3, 0, 1), mar = c(0, 0, 0, 0), new = F)
+        class(x) <- "hclust"
+        plot(as.dendrogram(x), horiz = TRUE, leaflab = "none", 
+            frame.plot = FALSE, edgePar = list(col = "black", 
+                lw = 2), type = type)
+        scale <- 0.9
+        offset <- 0.05
+        for (i in 1:x$N) {
+            par(fig = c(0.35, 1, offset + (i - 1)/x$N * scale, 
+                offset + (i/x$N * scale)), mar = c(0, 0, 0, 0), 
+                new = TRUE)
+            if (x$multichannel) {
+                dat <- X[, x$order[i], 1]
+            }
+            else {
+                dat <- X[, x$order[i]]
+            }
+          
+           myimg <- raw[[x$order[i]]]
+
+        plot(c(0,3),c(0,1),type="n",xaxt='n',yaxt='n',ann=F, frame.plot=F)
+		pimg <- raw[[x$order[i]]]
+		if (monochrome) pimg <- sw(pimg)
+        rasterImage(pimg,0,0,1,1)
+        #raster::image(pimg,xaxt='n',yaxt='n',axes=FALSE,useRaster=T,col=c("black","white"))
+		
+  }
+
+	invisible()
 }

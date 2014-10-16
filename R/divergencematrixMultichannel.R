@@ -1,4 +1,13 @@
+
+
 divergencematrix.multichannel <-
+function(codebooks, divergence, num.channels)
+{
+	warning("Calls to divergencematrix.multichannel(...) is deprecated!")
+	return(divergenceMatrixMultichannel(codebooks, divergence, num.channels));
+}
+
+divergenceMatrixMultichannel <-
 function(codebooks, divergence, num.channels)
 {
 	l <- dim(codebooks)[1]/num.channels

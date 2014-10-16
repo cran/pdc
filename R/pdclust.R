@@ -1,15 +1,15 @@
 pdclust <-
-function(X, m=NULL, t=NULL, divergence=symmetric.alpha.divergence, clustering.method="complete") 
+function(X, m=NULL, t=NULL, divergence=symmetricAlphaDivergence, clustering.method="complete") 
 {
 	user.m <- !is.null(m);
 	user.t <- !is.null(t);
 	
 	if ((is.null(m)) && (is.null(t))) {
-			m <- entropy.heuristic(X)$m;
+			m <- entropyHeuristic(X)$m;
 	}
 	
 	if (is.null(m)) {
-			m <- entropy.heuristic(X, t.min=t, t.max=t)$m;
+			m <- entropyHeuristic(X, t.min=t, t.max=t)$m;
 	}
 	
 	if (is.null(t)) {
@@ -19,7 +19,7 @@ function(X, m=NULL, t=NULL, divergence=symmetric.alpha.divergence, clustering.me
 
 
 	# calculate divergence matrix			
-	D <- pdc.dist(X,m,t,divergence);
+	D <- pdcDist(X,m,t,divergence);
 	
 	# start hierarchical clustering
 	if (clustering.method == "complete") {
@@ -45,7 +45,7 @@ function(X, m=NULL, t=NULL, divergence=symmetric.alpha.divergence, clustering.me
 	hcl$labels <- colnames(X)
 	
 	# wrap hclust result
-	class(hcl) <- "pdclust"
+	class(hcl) <- c("pdclust","hclust")
 	
 	return(hcl);	
 }

@@ -1,4 +1,13 @@
+
+
 divergencematrix <-
+function(codebooks, divergence)
+{
+	warning("Calls to divergencematrix(...) is deprecated!")
+	return(divergenceMatrix(codebooks, divergence));
+}
+
+divergenceMatrix <-
 function(codebooks, divergence)
 {
 	l <- dim(codebooks)[1]

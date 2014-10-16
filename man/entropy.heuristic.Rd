@@ -1,8 +1,9 @@
-\name{entropy.heuristic}
+\name{entropyHeuristic}
 \alias{entropy.heuristic}
+\alias{entropyHeuristic}
 \alias{plot.mine}
 \alias{print.mine}
-%- Also NEED an '\alias' for EACH other topic documented here.
+\alias{summary.mine}
 \title{
 Minimum Entropy Heuristic (MinE)
 }
@@ -15,18 +16,28 @@ Heuristic (MinE) automatically chooses an embedding dimension with an optimal
 representational entropy as proxy for representational power.
 }
 \usage{
-entropy.heuristic(X, m.min=3, m.max=7, t.min = 1, t.max = 1)
-}
-%- maybe also 'usage' for other objects documented here.
+entropyHeuristic(X, m.min=3, m.max=7, t.min = 1, t.max = 1)
 
-\arguments{
-  \item{X}{
-A matrix representing a set of time series. Columns are time series and rows represent time points.
+\method{print}{mine}(x, \dots)
+\method{summary}{mine}(object, \dots)
+\method{plot}{mine}(x, normalize = FALSE, type = "image", mark.optimum = TRUE,
+                 col = heat.colors(12), \dots)
+
 }
+\arguments{
+ \item{X}{A matrix representing a set of time series. Columns are time series and rows represent time points.}
+ \item{x}{An entropy heuristic object of type \code{mine}.}
+ \item{object}{An entropy heuristic object of type \code{mine}.}
  \item{m.min}{Minimum embedding dimension}
 \item{m.max}{Maximum embedding dimension}
 \item{t.min}{Minimum time-delay}
 \item{t.max}{Maximum time-delay}
+\item{\dots}{Further arguments for the generic print, summary, and plot method.}
+
+\item{normalize}{Normalize values to range [0;1].}
+\item{type}{Either 'image' or 'contour'. Specifies the plot type.}
+\item{mark.optimum}{Mark the optimal embedding dimension and/or time-delay.}
+\item{col}{A color map to represent entropy values on.}
 
 }
 \details{
@@ -47,18 +58,14 @@ A list is returned with the following elements:
 \item{entropy.ms}{A vector of the embedding dimensions that were searched for the optimal embedding.}
 }
 \references{
-Brandmaier, A. M. \emph{Permutation Distribution Clustering and Structural Equation Model Trees}. Dissertation. Saarland University. Saarbruecken. 2012.
+Brandmaier, A. M. (2012). \emph{Permutation Distribution Clustering and Structural Equation Model Trees}. Doctoral dissertation. Saarland University, Saarbruecken, Germany.
 
+Brandmaier, A. M. (under review). pdc: An R Package for Complexity-Based Clustering
+of Time Series.
 }
 \author{
 Andreas M. Brandmaier
 }
-%\note{
-%%  ~~further notes~~
-%}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
 \seealso{
 \code{\link{pdclust}}
 }
@@ -71,7 +78,7 @@ Andreas M. Brandmaier
 # depending on varying choices of the embedding size
 # (by default time-delay is not searched over)
 
-heuristic <-  entropy.heuristic( sin(1:100)+rnorm(100,0,1) )
+heuristic <-  entropyHeuristic( sin(1:100)+rnorm(100,0,1) )
 plot(heuristic)
 
 
@@ -79,12 +86,9 @@ plot(heuristic)
 #
 # calculate both optimal embedding dimension and time-delay
 #
-heuristic <-  entropy.heuristic( sin(1:100)+rnorm(100,0,1), t.min=1, t.max=6 )
+heuristic <-  entropyHeuristic( sin(1:100)+rnorm(100,0,1), t.min=1, t.max=6 )
 plot(heuristic)
 
 
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-%\keyword{ cluster }
 

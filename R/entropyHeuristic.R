@@ -1,6 +1,13 @@
 entropy.heuristic <-
 function(X, m.min=3, m.max=7, t.min=1, t.max=1)
 {
+	warning("Call to entropy.heuristic(...) is deprecated!")
+	return(entropyHeuristic(X, m.min, m.max, t.min, t.max))
+}
+
+entropyHeuristic <-
+function(X, m.min=3, m.max=7, t.min=1, t.max=1)
+{
 	X <- as.matrix(X)
 
 	if (m.max>7) {

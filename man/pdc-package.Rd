@@ -13,43 +13,39 @@ PDC is particularly apt for the analysis of psychophysiological time-series beca
 
 }
 \details{
-%\tabular{ll}{
-%Package: \tab pdc\cr
-%Type: \tab Package\cr
-%Version: \tab 0.1.1\cr
-%Date: \tab 2012-03-19\cr
-%License: \tab GPL V3\cr
-%}
 The main function of the package is \code{\link{pdclust}}, which performs a hierarchical
 clustering of a set of time series based on differences in their permutation distributions.
 Other clustering or dimensionality-reduction methods can easily be employed by 
-directly accessing the distance matrix based on the permutation distribution via \code{\link{pdc.dist}}.
-A heuristic for choosing the embedding dimension is provided via \code{\link{entropy.heuristic}}.
-For clustering shapes, shape signatures can be traced from images with \code{\link{trace.image}}. Example data sets for shape clustering are \code{\link{star.shapes}} and \code{\link{complex.shapes}}.
+directly accessing the distance matrix based on the permutation distribution via \code{\link{pdcDist}}.
+A heuristic for choosing the embedding dimension is provided via \code{\link{entropyHeuristic}}.
+For clustering shapes, shape signatures can be traced from images with \code{\link{traceImage}}. Example data sets for shape clustering are \code{\link{star.shapes}} and \code{\link{complex.shapes}}.
 }
 \author{
 Andreas M. Brandmaier <brandmaier@mpib-berlin.mpg.de>
 }
 \references{
-Brandmaier, A. M. \emph{Permutation Distribution Clustering and Structural Equation Model Trees}. Dissertation. Saarland University. Saarbruecken. 2012.
+Brandmaier, A. M. (2012). \emph{Permutation Distribution Clustering and Structural Equation Model Trees}. Doctoral dissertation. Saarland University, Saarbruecken, Germany.
+
+Brandmaier, A. M. (under review). pdc: An R Package for Complexity-Based Clustering
+of Time Series.
 }
 \keyword{ cluster }
 \keyword{ ts}
 \seealso{
 \code{\link{pdc}}
-\code{\link{pdc.dist}}
+\code{\link{pdcDist}}
 \code{\link{codebook}}
 
 }
 \examples{
 
 
-# generate 5 ARIMA time series for the first group
+# generate 5 ARMA time series for the first group
 grp1 <- replicate(5, arima.sim(n = 500, list(ar = c(0.8897, -0.4858), 
 		ma = c(-0.2279, 0.2488)),
           	sd = sqrt(0.1796)) )
           
-# generate 5 ARIMA time series for the second group
+# generate 5 ARMA time series for the second group
 grp2 <- replicate(5, arima.sim(n = 500, list(ar = c(-0.71, 0.18), 
 		ma = c(0.92, 0.14)),
           	sd = sqrt(0.291)) )

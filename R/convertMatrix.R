@@ -1,4 +1,13 @@
+
+
 convert.matrix <-
+function(X, m, td)
+{
+	warning("Use of convert.matrix is deprecated!");
+	return(convertMatrix(X,m,td))
+}
+
+convertMatrix <-
 function(X, m, td)
 {
 	#result <- c()

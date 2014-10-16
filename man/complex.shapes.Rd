@@ -1,6 +1,7 @@
 \name{complex.shapes}
 \docType{data}
 \alias{complex.shapes}
+\alias{complex.shapes.raw}
 \title{Shape Signatures of Fish, Glasses, and Bottles}
 \description{
   This data set provides exemplary shape signatures of each five
@@ -8,9 +9,19 @@
   derived from original artwork obtained from \url{openclipart.org}.
   Column names encode the type of image.
 }
-\usage{data(complex.shapes)}
-\format{A matrix containing 100 rows and 15 columns. }
+\usage{
+
+data(complex.shapes)
+
+data(complex.shapes.raw)
+}
+
+\format{
+\code{complex.shapes} is a matrix containing 100 rows and 15 columns obtained from \code{trace.image}. 
+\code{complex.shapes.raw} contains a list containing 15 three-dimensional matrices and an array of corresponding labels.
+}
 \references{
-  Under review
+	Brandmaier, A. M. (under review). pdc: An R Package for Complexity-Based Clustering
+of Time Series.
 }
 \keyword{datasets}

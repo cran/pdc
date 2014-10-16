@@ -12,7 +12,7 @@ Hierarchical cluster analysis for time series. Similarity of time series is base
 }
 \usage{
 pdclust(X, m = NULL, t = NULL, divergence =
-                 symmetric.alpha.divergence, clustering.method =
+                 symmetricAlphaDivergence, clustering.method =
                  "complete")
 
 %Plotting function for class 'pdclust'
@@ -24,13 +24,14 @@ pdclust(X, m = NULL, t = NULL, divergence =
 % String representation for 'pdclust'
 \method{str}{pdclust}(object, \dots)
 
+% Print function for class 'pdclust'
+\method{print}{pdclust}(x, \dots)
 }
 
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{X}{
-A matrix representing a set of time series. Columns represent different time series and rows represent time points.
-Or: a three-dimensional array with the first dimension representing time, second dimension representing time series, and the third dimension representing channels.
+In the univariate case: A matrix representing a set of time series. Columns represent different time series and rows represent time.
+In the multivariate case: A three-dimensional matrix with the first dimension representing time, second dimension representing multivariate time series, and the third dimension representing variables.
 }
   \item{m}{
 Embedding dimension for calculating the permutation distributions. Reasonable values range somewhere between 2 and 10. If no embedding dimension is chosen, the MinE heuristic is used to determine the embedding dimension automatically.}
@@ -78,31 +79,29 @@ Calls to \code{pdclust} return a \code{pdclust} object. There are
 \code{\link{print}}, \code{\link{str}} and \code{\link{plot}} methods for \code{pdclust} objects.
 }
 \references{
-Brandmaier, A. M. \emph{Permutation Distribution Clustering and Structural Equation Model Trees}. Dissertation. Saarland University. Saarbruecken. 2012.
+Brandmaier, A. M. (2012). \emph{Permutation Distribution Clustering and Structural Equation Model Trees}. Doctoral dissertation. Saarland University, Saarbruecken, Germany.
+
+Brandmaier, A. M. (under review). pdc: An R Package for Complexity-Based Clustering
+of Time Series.
 }
 \author{
 Andreas M. Brandmaier
 }
-%\note{
-%%  ~~further notes~~
-%}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-\code{\link{pdc.dist}}
-\code{\link{entropy.heuristic}}
-\code{\link{symmetric.alpha.divergence}}
+\code{\link{pdcDist}}
+\code{\link{entropyHeuristic}}
+\code{\link{symmetricAlphaDivergence}}
 }
 
 \examples{
 
-# generate 5 ARIMA time series for the first group
+# generate 5 ARMA time series for the first group
 grp1 <- replicate(5, arima.sim(n = 500, list(ar = c(0.8897, -0.4858), 
 		ma = c(-0.2279, 0.2488)),
           	sd = sqrt(0.1796)) )
           
-# generate 5 ARIMA time series for the second group
+# generate 5 ARMA time series for the second group
 grp2 <- replicate(5, arima.sim(n = 500, list(ar = c(-0.71, 0.18), 
 		ma = c(0.92, 0.14)),
           	sd = sqrt(0.291)) )
@@ -115,7 +114,5 @@ clustering <- pdclust(X)
 plot(clustering, cols=c(rep("red",5),rep("blue",5)))
 
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
 \keyword{ ts }
 \keyword{ cluster }% __ONLY ONE__ keyword per line
