@@ -1,6 +1,6 @@
-a1bab0c61bc4e199d727a4d456580a1c *DESCRIPTION
+621adb7d59aa1e331cddc62c7c9732fc *DESCRIPTION
 809df1a06033ba6b23f208725e563f9e *NAMESPACE
-cb31c6b4c02952cebd915fdbd3ce953a *NEWS
+9992cbccb383089195ca839e49929253 *NEWS
 319238117d864df6c0dabcaf56660610 *R/alphaDivergence.R
 7583f0ba834e97c3d860030ac4ade1b5 *R/codebook.R
 e845eaee7ede60637b550ec86b7cea7d *R/codebook.entropy.R
@@ -17,7 +17,7 @@ ecb034c4fe6ef50b1256eac749454325 *R/divergencematrixMultichannel.R
 b862f6c0d1daaab8f9b7899f317079db *R/llr.R
 1146c9f291d44fd24c9cee607bc3c52a *R/loo1nn.R
 d0c2ea286592a81fd16b87bf729e6fe3 *R/mdsPlot.R
-d4f85aa2849d4c1f4043d7f4e35e53a6 *R/pdcDist.R
+fc7dfde160e4655dd8ac0aeec6488d33 *R/pdcDist.R
 fee81bcbcbc177d85f7e5e162bb57996 *R/pdclust.R
 fc67ba8fd7bd536cb3b9c36fe55920a4 *R/plot.mine.R
 7e4ed84499ded5c7a56c06a02988de11 *R/plot.pdclust.R
@@ -52,4 +52,5 @@ b9a7ae86992517cab8d9ef6af73ddd24 *man/star.shapes.Rd
 85ed20f366059884f997338c0eb978ea *src/fast_codebook7.c
 d950945affbbb6ee7b8a08d9febcba66 *tests/codebook.R
 7abe89a289b03266f373108dd5119791 *tests/mine.R
+16ef73b794130a64caf1e30ca31f772e *tests/pdcdist.R
 1e0cad2237a4c0d5fb0448078ce795f5 *tests/pdclust.R

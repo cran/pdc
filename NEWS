@@ -1,3 +1,6 @@
+V1.0.1;	10.11.2014	
+- calls to pdcDist with default arguments do not produce a warning anymore
+
 V1.0;	16.10.2014
 - changed all function calls to camelcase naming convention, e.g., pdcDist()
   instead of pdc.dist().

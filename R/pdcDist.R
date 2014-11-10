@@ -8,7 +8,7 @@ pdcDist <-
 function(X, m=NULL, t=NULL, divergence=symmetricAlphaDivergence)
 {
 	if (is.null(t) | is.null(m)) {
-		ent <- entropy.heuristic(X)
+		ent <- entropyHeuristic(X)
 		
 		if (is.null(m)) {
 			m <- ent$m;
