@@ -24,10 +24,8 @@ For clustering shapes, shape signatures can be traced from images with \code{\li
 Andreas M. Brandmaier <brandmaier@mpib-berlin.mpg.de>
 }
 \references{
-Brandmaier, A. M. (2012). \emph{Permutation Distribution Clustering and Structural Equation Model Trees}. Doctoral dissertation. Saarland University, Saarbruecken, Germany.
-
-Brandmaier, A. M. (under review). pdc: An R Package for Complexity-Based Clustering
-of Time Series.
+Brandmaier, A. M. (in press). pdc: An R Package for Complexity-Based Clustering
+of Time Series. Journal of Statistical Software.
 }
 \keyword{ cluster }
 \keyword{ ts}

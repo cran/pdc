@@ -21,7 +21,7 @@ data(complex.shapes.raw)
 \code{complex.shapes.raw} contains a list containing 15 three-dimensional matrices and an array of corresponding labels.
 }
 \references{
-	Brandmaier, A. M. (under review). pdc: An R Package for Complexity-Based Clustering
-of Time Series.
+Brandmaier, A. M. (in press). pdc: An R Package for Complexity-Based Clustering
+of Time Series. Journal of Statistical Software.
 }
 \keyword{datasets}

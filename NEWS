@@ -1,3 +1,9 @@
+V1.0.2; 11.11.2014
+- bugfixes for resetting par() after plotting (plot.pdclust and rasterPlot)
+- removed dev.new() from rasterPlot
+- fixed dataset "star.shapes.raw", which erroneously contained wrong images
+- updated citation information in docs
+
 V1.0.1;	10.11.2014	
 - calls to pdcDist with default arguments do not produce a warning anymore
 

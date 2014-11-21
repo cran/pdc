@@ -1,8 +1,8 @@
 loo1nn <- function(x, y)
 {
-	stopifnot(class(x)=="pdclust" || class(x)=="dist")
+	stopifnot(inherits(x,"pdclust") || inherits(x,"dist"))
 
-	if (any(class(x)=="dist")) {
+	if (inherits(x, "dist")) {
 		D <- as.matrix(x)
 	} else {
 		D <- as.matrix(x$D)

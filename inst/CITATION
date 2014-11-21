@@ -1,0 +1,15 @@
+citHeader("To cite pdc in publication use:")
+
+citEntry(entry="Article",
+	title="pdc: An R package for complexity-based clustering of time series",
+	author = as.person("Andreas M. Brandmaier"),
+	journal = "Journal of Statistical Software",
+	year = "in press",
+	
+	textVersion=
+	paste("Andreas M. Brandmaier (in press).",
+	"pdc: An R package for Complexity-Based Clustering of Time Series.",
+	"Journal of Statistical Software."
+	)
+
+)
