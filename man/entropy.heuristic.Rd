@@ -58,14 +58,15 @@ A list is returned with the following elements:
 \item{entropy.ms}{A vector of the embedding dimensions that were searched for the optimal embedding.}
 }
 \references{
+Brandmaier, A. M. (2015). pdc: An R Package for Complexity-Based Clustering
+of Time Series. \emph{Journal of Statistical Software, 67(5)}, 1--23.
+
 Brandmaier, A. M. (2012). \emph{Permutation Distribution Clustering and Structural Equation Model Trees}. Doctoral dissertation. Saarland University, Saarbruecken, Germany.
 
-Brandmaier, A. M. (in press). pdc: An R Package for Complexity-Based Clustering
-of Time Series.
 }
 \author{
-Andreas M. Brandmaier
-}
+Andreas Brandmaier \email{brandmaier@mpib-berlin.mpg.de}}
+
 \seealso{
 \code{\link{pdclust}}
 }

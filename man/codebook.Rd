@@ -30,9 +30,12 @@ codebook represent relative frequencies of codewords of size m.
 Returns a vector of relative frequencies.
 }
 
-\author{
-Andreas M. Brandmaier
+\references{
+Brandmaier, A. M. (2015). pdc: An R Package for Complexity-Based Clustering
+of Time Series. \emph{Journal of Statistical Software, 67(5)}, 1--23.
 }
+\author{
+Andreas Brandmaier \email{brandmaier@mpib-berlin.mpg.de}}
 
 \seealso{
 \code{\link{pdclust}}

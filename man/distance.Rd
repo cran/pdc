@@ -33,8 +33,7 @@ Returns a numeric dissimilarity between two codebooks.
 Note: The symmetric alpha-divergence is proportional to the Squared Hellinger distance, and is the default divergence between codebooks.
 }
 \author{
-Andreas M. Brandmaier
-}
+Andreas Brandmaier \email{brandmaier@mpib-berlin.mpg.de}}
 \seealso{
 \code{\link{codebook}}
 }

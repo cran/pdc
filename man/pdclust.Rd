@@ -79,14 +79,14 @@ Calls to \code{pdclust} return a \code{pdclust} object. There are
 \code{\link{print}}, \code{\link{str}} and \code{\link{plot}} methods for \code{pdclust} objects.
 }
 \references{
+Brandmaier, A. M. (2015). pdc: An R Package for Complexity-Based Clustering
+of Time Series. \emph{Journal of Statistical Software, 67(5)}, 1--23.
+\cr
 Brandmaier, A. M. (2012). \emph{Permutation Distribution Clustering and Structural Equation Model Trees}. Doctoral dissertation. Saarland University, Saarbruecken, Germany.
+}
 
-Brandmaier, A. M. (in press). pdc: An R Package for Complexity-Based Clustering
-of Time Series. Journal of Statistical Software.
-}
 \author{
-Andreas M. Brandmaier
-}
+Andreas Brandmaier \email{brandmaier@mpib-berlin.mpg.de}}
 
 \seealso{
 \code{\link{pdcDist}}

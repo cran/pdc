@@ -1,3 +1,7 @@
+V1.0.3; 28.09.2015
+- updated citation file and citation in docs
+- updated package's global imports to new CRAN policy
+
 V1.0.2; 11.11.2014
 - bugfixes for resetting par() after plotting (plot.pdclust and rasterPlot)
 - removed dev.new() from rasterPlot

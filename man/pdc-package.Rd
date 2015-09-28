@@ -20,12 +20,12 @@ directly accessing the distance matrix based on the permutation distribution via
 A heuristic for choosing the embedding dimension is provided via \code{\link{entropyHeuristic}}.
 For clustering shapes, shape signatures can be traced from images with \code{\link{traceImage}}. Example data sets for shape clustering are \code{\link{star.shapes}} and \code{\link{complex.shapes}}.
 }
-\author{
-Andreas M. Brandmaier <brandmaier@mpib-berlin.mpg.de>
-}
 \references{
-Brandmaier, A. M. (in press). pdc: An R Package for Complexity-Based Clustering
-of Time Series. Journal of Statistical Software.
+Brandmaier, A. M. (2015). pdc: An R Package for Complexity-Based Clustering
+of Time Series. \emph{Journal of Statistical Software, 67(5)}, 1--23.
+}
+\author{
+Andreas Brandmaier \email{brandmaier@mpib-berlin.mpg.de}
 }
 \keyword{ cluster }
 \keyword{ ts}

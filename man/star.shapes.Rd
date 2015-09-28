@@ -19,7 +19,9 @@ data(star.shapes.raw)
 \code{star.shapes.raw} contains a list of three-dimensional matrices containing the raw images and an array of corresponding labels.}
 
 \references{
-Brandmaier, A. M. (in press). pdc: An R Package for Complexity-Based Clustering
-of Time Series. Journal of Statistical Software.
+Brandmaier, A. M. (2015). pdc: An R Package for Complexity-Based Clustering
+of Time Series. \emph{Journal of Statistical Software, 67(5)}, 1--23.
 }
+\author{
+Andreas Brandmaier \email{brandmaier@mpib-berlin.mpg.de}}
 \keyword{datasets}
